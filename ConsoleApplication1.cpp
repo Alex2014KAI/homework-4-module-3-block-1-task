@@ -31,7 +31,6 @@ int main()
 		calculator.setNum1();
 		calculator.setNum2();
 
-
 		std::cout << "num1 + num2 = " << calculator.add() << std::endl;
 		std::cout << "num1 - num2 = " << calculator.subtract_1_2() << std::endl;
 		std::cout << "num2 - num1 = " << calculator.subtract_2_1() << std::endl;
