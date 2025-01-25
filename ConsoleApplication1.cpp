@@ -2,16 +2,14 @@
 #include <typeinfo>
 
 class Calculator {
-public:
+private:
 	double _num1;
 	double _num2;
 
+public:
 	void setNum1();
 	void setNum2();
 
-	void setData();
-
-private:
 	double add();
 	double multiply();
 	double subtract_1_2();
@@ -19,13 +17,9 @@ private:
 	double divide_1_2();
 	double divide_2_1();
 
-	void print();
-
-public:
 	bool set_num1(double num1);
 	bool set_num2(double num2);
 
-	void work();
 
 
 };
@@ -33,7 +27,18 @@ public:
 int main()
 {
 	Calculator calculator;
-	calculator.work();
+	while (true) {
+		calculator.setNum1();
+		calculator.setNum2();
+
+
+		std::cout << "num1 + num2 = " << calculator.add() << std::endl;
+		std::cout << "num1 - num2 = " << calculator.subtract_1_2() << std::endl;
+		std::cout << "num2 - num1 = " << calculator.subtract_2_1() << std::endl;
+		std::cout << "num1 * num2 = " << calculator.multiply() << std::endl;
+		std::cout << "num1 / num2 = " << calculator.divide_1_2() << std::endl;
+		std::cout << "num2 / num1 = " << calculator.divide_2_1() << std::endl;
+	}
 	
 
 }
@@ -67,11 +72,6 @@ void Calculator::setNum2() {
 		}
 	}
 };
-
-void Calculator::setData() {
-	setNum1();
-	setNum2();
-}
 
 double Calculator::add() {
 	return _num1 + _num2;
@@ -115,21 +115,4 @@ bool Calculator::set_num2(double num2) {
 	else {
 		return false;
 	};
-}
-
-void Calculator::print() {
-	std::cout << "num1 + num2 = " << add()<< std::endl;
-	std::cout << "num1 - num2 = " << subtract_1_2() << std::endl;
-	std::cout << "num2 - num1 = " << subtract_2_1() << std::endl;
-	std::cout << "num1 * num2 = " << multiply() << std::endl;
-	std::cout << "num1 / num2 = " << divide_1_2() << std::endl;
-	std::cout << "num2 / num1 = " << divide_2_1() << std::endl;
-}
-
-void Calculator::work() {
-
-	while (true) {
-		setData();
-		print();
-	}
 }
